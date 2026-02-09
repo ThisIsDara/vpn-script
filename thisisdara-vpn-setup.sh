@@ -82,7 +82,7 @@ echo ""
 sleep 2
 
 # Total steps
-TOTAL_STEPS=9
+TOTAL_STEPS=8
 
 # Step 1: Switch to root
 execute_step 1 $TOTAL_STEPS "Switching to root user" "echo 'Switching to root environment...'"
@@ -98,22 +98,19 @@ execute_step 3 $TOTAL_STEPS "Upgrading system packages" "sudo apt upgrade -y"
 execute_step 4 $TOTAL_STEPS "Creating directory 'thisisdara'" "mkdir -p thisisdara"
 progress_bar 0.5 "Directory created"
 
-# Step 5: Change to directory
-execute_step 5 $TOTAL_STEPS "Navigating to 'thisisdara' directory" "cd thisisdara && pwd"
+# Step 5: Clone repository
+execute_step 5 $TOTAL_STEPS "Cloning 3x-ui repository from GitHub" "cd thisisdara && git clone https://github.com/MHSanaei/3x-ui"
 
-# Step 6: Clone repository
-execute_step 6 $TOTAL_STEPS "Cloning 3x-ui repository from GitHub" "cd thisisdara && git clone https://github.com/MHSanaei/3x-ui"
-
-# Step 7: Navigate to 3x-ui
-execute_step 7 $TOTAL_STEPS "Entering 3x-ui directory" "cd thisisdara/3x-ui && pwd"
+# Step 6: Navigate to 3x-ui
+execute_step 6 $TOTAL_STEPS "Entering 3x-ui directory" "cd thisisdara/3x-ui && pwd"
 progress_bar 0.5 "Ready for installation"
 
-# Step 8: Make install script executable
-execute_step 8 $TOTAL_STEPS "Setting execute permissions on install.sh" "chmod +x thisisdara/3x-ui/install.sh"
+# Step 7: Make install script executable
+execute_step 7 $TOTAL_STEPS "Setting execute permissions on install.sh" "chmod +x thisisdara/3x-ui/install.sh"
 progress_bar 0.5 "Permissions set"
 
-# Step 9: Run installation
-execute_step 9 $TOTAL_STEPS "Running 3x-ui installation" "cd thisisdara/3x-ui && ./install.sh"
+# Step 8: Run installation
+execute_step 8 $TOTAL_STEPS "Running 3x-ui installation" "cd thisisdara/3x-ui && ./install.sh"
 
 # Completion message
 echo ""
