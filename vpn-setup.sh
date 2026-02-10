@@ -11,11 +11,19 @@ NC='\033[0m' # No Color
 # Function to display header
 show_header() {
     clear
-    echo -e "${CYAN}╔════════════════════════════════════════════════╗${NC}"
-    echo -e "${CYAN}║                                                ║${NC}"
-    echo -e "${CYAN}║        ${YELLOW}ThisIsDara VPN Shell Script${CYAN}          ║${NC}"
-    echo -e "${CYAN}║                                                ║${NC}"
-    echo -e "${CYAN}╔════════════════════════════════════════════════╗${NC}"
+    echo -e "${CYAN}   /\\"
+    echo -e "  //\\\\"
+    echo -e " //  \\\\"
+    echo -e "|| VPN ||"
+    echo -e " \\\\  //"
+    echo -e "  \\\\//"
+    echo -e "   \\/"
+    echo -e "${NC}"
+    echo -e "${CYAN}╔═══════════════════════════════════════════════════════════╗${NC}"
+    echo -e "${CYAN}║                                                           ║${NC}"
+    echo -e "${CYAN}║                 ${YELLOW}ThisIsDara VPN Shell Script${CYAN}               ║${NC}"
+    echo -e "${CYAN}║                                                           ║${NC}"
+    echo -e "${CYAN}╚═══════════════════════════════════════════════════════════╝${NC}"
     echo ""
 }
 
@@ -33,9 +41,9 @@ progress_bar() {
         local empty=$((width - i))
         
         printf "\r${GREEN}["
-        printf "%${filled}s" | tr ' ' '='
-        printf ">${NC}"
-        printf "%${empty}s" | tr ' ' ' '
+        for ((j=0; j<filled; j++)); do printf "▓"; done
+        printf "${YELLOW}▶${NC}"
+        for ((j=0; j<empty; j++)); do printf " "; done
         printf "${GREEN}]${NC} ${percent}%%"
         
         sleep $(echo "scale=3; $duration/$width" | bc)
@@ -53,9 +61,9 @@ execute_step() {
     shift 3
     local cmd="$@"
     
-    echo -e "${CYAN}═══════════════════════════════════════════════${NC}"
-    echo -e "${YELLOW}Step ${step_num}/${total_steps}: ${description}${NC}"
-    echo -e "${CYAN}═══════════════════════════════════════════════${NC}"
+    echo -e "${CYAN}┌─────────────────────────────────────────────────────────────┐${NC}"
+    echo -e "${CYAN}│${NC} ${YELLOW}Step ${step_num}/${total_steps}: ${description}${NC} ${CYAN}│${NC}"
+    echo -e "${CYAN}└─────────────────────────────────────────────────────────────┘${NC}"
     echo ""
     
     eval "$cmd"
@@ -115,11 +123,11 @@ execute_step 8 $TOTAL_STEPS "Running 3x-ui installation" "./3x-ui/install.sh"
 
 # Completion message
 echo ""
-echo -e "${CYAN}╔════════════════════════════════════════════════╗${NC}"
-echo -e "${CYAN}║                                                ║${NC}"
-echo -e "${CYAN}║           ${GREEN}Installation Complete!${CYAN}               ║${NC}"
-echo -e "${CYAN}║                                                ║${NC}"
-echo -e "${CYAN}║     ${YELLOW}ThisIsDara VPN is now installed${CYAN}          ║${NC}"
-echo -e "${CYAN}║                                                ║${NC}"
-echo -e "${CYAN}╔════════════════════════════════════════════════╗${NC}"
+echo -e "${CYAN}╔═══════════════════════════════════════════════════════════╗${NC}"
+echo -e "${CYAN}║                                                           ║${NC}"
+echo -e "${CYAN}║                 ${GREEN}Installation Complete!${CYAN}               ║${NC}"
+echo -e "${CYAN}║                                                           ║${NC}"
+echo -e "${CYAN}║              ${YELLOW}ThisIsDara VPN is now installed${CYAN}              ║${NC}"
+echo -e "${CYAN}║                                                           ║${NC}"
+echo -e "${CYAN}╚═══════════════════════════════════════════════════════════╝${NC}"
 echo ""
