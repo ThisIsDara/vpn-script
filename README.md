@@ -13,7 +13,7 @@ This script automates the installation and setup of a VPN server using the 3x-ui
 To install and run the VPN setup in one go, execute:
 
 ```bash
-git clone https://github.com/ThisIsDara/Shell-script.git && cd Shell-script && chmod +x vpn-setup.sh && ./vpn-setup.sh
+git clone https://github.com/ThisIsDara/vpn-script.git && cd vpn-script && chmod +x vpn-setup.sh && ./vpn-setup.sh
 ```
 
 This command will:
